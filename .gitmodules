@@ -1,0 +1,15 @@
+[submodule "booking-orchestrator-service"]
+	path = booking-orchestrator-service
+	url = https://github.com/Cloud2Shore/booking-orchestrator-service.git
+[submodule "user-service"]
+	path = user-service
+	url = https://github.com/Cloud2Shore/user-service.git
+[submodule "hotel-service"]
+	path = hotel-service
+	url = https://github.com/Cloud2Shore/hotel-service.git
+[submodule "payment-service"]
+	path = payment-service
+	url = https://github.com/Cloud2Shore/payment-service.git
+[submodule "notification-service"]
+	path = notification-service
+	url = https://github.com/Cloud2Shore/notification-service.git
