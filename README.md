@@ -44,3 +44,24 @@ Additional Tips
 Check Dependencies: Ensure that any module you are building independently has its dependencies already built and installed in the local Maven repository. Otherwise, you might get a "dependency not found" error.
 Profiles: You can also use Maven profiles to customize the build for different environments or configurations.
 Parallel Builds: Maven supports parallel builds using the -T option. For example, -T 4 will use four threads to build projects in parallel, which can speed up the build process if you are building multiple modules.
+
+---------------
+** Feign Client with Static URL and Load Balancing**
+Declarative Feign Client with Static URL:
+
+**Configuration:** In this approach, you configure the Feign client with a static URL, specifying the full URL of the service in the @FeignClient annotation.
+
+**Example:**
+@FeignClient(name = "user-service", url = "http://localhost:8081")
+public interface UserServiceClient {
+    @GetMapping("/user/authenticate")
+    boolean authenticateUser(@RequestParam("userId") String userId);
+}
+
+**Declarative Nature:**
+Declarative: Feign provides a declarative way to define REST calls through interfaces and annotations.
+Load Balancing: Even though you can use load balancing with Feign by integrating with spring-cloud-starter-loadbalancer, it requires explicit configuration, and load balancing might not be fully dynamic if the URL is static.
+
+**No Service Discovery:**
+Static URLs: When you use static URLs, you bypass dynamic service discovery. If services scale or move, you need to manually update the URLs in your codebase.
+Limited Flexibility: This approach is less flexible and doesn't fully leverage the benefits of dynamic service discovery, which means that any changes in the service instances or their locations need to be handled manually.
